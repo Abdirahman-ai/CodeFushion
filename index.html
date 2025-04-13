@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- head
+9
+        Purpose:
+        - Title used here shows up in the browser tab
+        - Link to the favicon (small image that appears in the browser tab)
+        - Link to the CSS file (used to style the webpage)
+
+        When To Modify:
+        - [X] Project 2 (REQUIRED FEATURE) 
+        - [x] Project 2 (STRETCH FEATURE) (favicon)
+        - [x] Any time after
+        -->
+        <link rel="stylesheet" href="styles.css">
+        <title>CodeFusion</title>
+        <link rel="icon" type="image/png" href="img/img4.jpg">
+    </head>
+    
+    <body>
+    
+        <!-- navbar [PLACEHOLDER] [ADDED IN UNIT 4] -->
+        <!-- navbar
+
+        Purpose:
+        - Navigation bar that allows users to jump to different sections of the webpage
+        - Also holds buttons for user settings (dark mode, reduce motion)
+
+        When To Modify:
+        - [X] Project 4 (REQUIRED FEATURE)
+        - [ ] Project 5 (REQUIRED FEATURE) 
+        - [ ] Project 8 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <div class="navbar">
+            <ul>
+                <li> <a href="#Home"> Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><button id="theme-button"> Toggle Dark mode</button></li>           
+            </ul>
+        </div>
+           
+        <section id="home">
+            <h2>Welcome to CodeFusion</h2>
+            <p>CodeFusion is a place where ideas and code collide.</p>
+        </section>
+        
+        <!-- headings
+
+        Purpose:
+        - Main header section of the webpage
+        - Contains the title, subtitle, image, and key buttons for the webpage
+
+        When To Modify:
+        - [X] Project 2 (REQUIRED FEATURE) 
+        - [X] Project 3 (REQUIRED FEATURE) 
+        - [ ] Project 4 (REQUIRED FEATURE) 
+        - [ ] Any time after
+        -->
+        <div class="header-container">
+            <h1>CodeFusion 🔥</h1>
+            
+            <div id="header-img">
+                <img src="./img/img3.png" alt="CodeFusion event logo"/>
+            </div>
+        
+            <!-- New div to properly align left & right sections -->
+            <div class="header-content">
+                <div class="header-item">
+                    <h2>Welcome to CodeFusion</h2>
+                </div>
+        
+                <div class="header-item">
+                    <h3>Where Ideas and Code Collide</h3>
+                </div>
+            </div>
+        
+            <div class="header-button">
+                <button class="button">Register Now</button>
+                <button class="button"> View Schedule </button>
+            </div>
+        </div>
+
+        
+        <!-- about
+
+        Purpose:
+        - Section for general info about the event
+        - Contains a video, description, and key points about the event
+
+        When To Modify:
+        - [X] Project 2 (REQUIRED FEATURE) 
+        - [X] Project 2 (STRETCH FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <h2>About the Event</h2>
+        <p>Welcome to <strong>CodeFusion 2025</strong>, the ultimate hackathon where innovation meets technology! 
+            Join developers, designers, and tech enthusiasts from around the world as they collaborate to build 
+            groundbreaking solutions in just 48 hours. Whether you're a beginner or an expert, this is your chance 
+            to showcase your skills, network with industry leaders, and compete for amazing prizes. 
+            Are you ready to hack the future? 🚀</p>
+
+        <h3>What to Expect</h3>
+        <h4>Tag Line</h4>
+        <ul>
+            <li> <b>Bullet 1:</b> <i>Description</i></li>
+            <li> <b>Bullet 2:</b> <i>Description</i></li>
+            <li> <b>Bullet 3:</b> <i>Description</i></li>
+        </ul>
+
+        <!-- schedule
+
+        
+
+        Purpose:
+        - Section for specific info about the event's schedule
+        - Contains images and descriptions of each activity
+
+        When To Modify:
+        - [X] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+
+        <section id="schedule">
+            <h2>Schedule</h2>
+            <p>Check out our exciting schedule filled with talks, workshops, and networking.</p>
+        </section>
+
+        
+        <h2>Event Schedule</h2>
+        <!-- <img src="img/img1.jpg" alt="A large room filled with programmers working on their laptops during a hackathon." width="50%" />
+        <p> <strong>Hackathon in Action</strong></p>
+        <p>This image captures the energy and focus of participants working together during an intense hackaton session. developers, designers, and innovators collaborate to build the groundbreaking projects in a compittive yet inspiring environment. Get ready to experience the same excitement at <strong>CodeFushion 2025</strong>!</p> -->
+        
+        <div class="image-container">
+            <img id="hackathon-img" src="./img/img1.jpg" alt="Wikimedia Hackathon 2023 - Programmers collaborating" width="50%">
+            <figcaption class="caption">
+                Wikimedia Hackathon 2023 – A Hub of Innovation and Collaboration
+            </figcaption>
+            <p class="description">
+                A dynamic scene from the Wikimedia Hackathon 2023 in Amsterdam, where programmers and developers collaborate on open-source projects. 
+                The event fosters creativity, teamwork, and the advancement of technology.
+            </p>
+        </div>
+        
+    
+
+        <div class="image-container">
+            <img id="hackathon-img" src="./img/img2.webp" alt="Hackathon 2013 event" width="50%">
+            <figcaption class="caption">
+                Wikimedia Hackathon 2024, Amsterdam – A collaborative coding event.
+            </figcaption>
+            <p class="description">
+                Developers, designers, and tech enthusiasts working together at the Wikimedia Hackathon 2013 in Amsterdam.
+                The walls are covered with colorful sticky notes representing brainstorming ideas and tasks.
+            </p>
+        </div>
+
+        <!-- <img src="./img/img2.webp" alt="Image description" width="50%"/> -->
+        <!-- <p>Wikimedia Hackathon 2013, Amsterdam - A collaborative coding event</p>
+        <p>Developers, designers, and tech enthusiasts working together at the Wikimedia Hackathon 2013 in Amsterdam.
+            The walls are covered with colorful sticky notes representing brainstorming ideas and tasks.</p> -->
+
+        <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
+        <!-- rsvp
+
+        Purpose:
+        - Section for users to sign up for the event
+        - Contains a form for users to input their information, 
+        and a list of other users who have signed up
+
+        When To Modify:
+        - [x] Project 6 (REQUIRED FEATURE) 
+        - [ ] Project 6 (STRETCH FEATURE) 
+        - [ ] Any time after
+        --> 
+        <div id="rsvp">
+            <h2>RSVP</h2>
+            <div class="rsvp-container">
+                <div class="rsvp-para">
+                    <p>Be a part of the innovation! Sign up now and secure your spot at CodeFusion 2025.</p>
+                  </div>                  
+                <div class="rsvp-participants">
+                    <p>🎟️ DJ from Texas has RSVP'd.</p>
+                    <p>🎟️ Amy from New York has RSVP'd.</p>
+                    <p>🎟️ Teresa from Montana has RSVP'd.</p>
+                </div>
+            </div>
+
+            <!--- Sign RSVP Form --->
+            <div class="form-container">
+                <form id="rsvp-form" title="rsvp-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="text" id="state" placeholder="Your State" required>
+                  </form>
+                  
+                <!-- Submit button -->
+                <button id="rsvp-button">Submit RSVP</button>
+            </div>      
+        </div>
+
+
+        <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] --> 
+
+        <!-- links
+
+        Purpose:
+        - Links to other resources related to the event
+
+        When To Modify:
+        - [x] Project 2 (STRETCH FEATURE) 
+        -->
+        <div class="video-container">
+            <h2>Watch This Video</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YyJRXPY0Vyg?si=7YrSWTIWBvroBXz0" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
+        </div>
+        
+        <!--
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <!-- <h2>Links</h2> -->
+
+        <!-- This <a> block is one link.  Copy and paste all 6 lines to create another link. -->
+        <section  id="links">
+            <!-- <a class="links"> -->
+                <h2>Useful links</h2>
+                <ul>
+                    <li><a href="https://github.com/Abdirahman-ai" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.w3schools.com/" target="_blank">W3Schools - Learn Web Development</a></li>
+                    <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs - Mozilla Developer</a></li>
+                    <li><a href="https://www.youtube.com/c/Freecodecamp" target="_blank">FreeCodeCamp YouTube Channel</a></li>
+                </ul>
+            <!-- </a> -->
+        </section>
+            
+        <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
+        <div class="footer">
+            <div class="footer-content">
+          
+              <div class="footer-group">
+                <h4>Contact</h4>
+                <a href="mailto:abdinahmen@gmail.com">Email Our Team</a>
+                <a href="contact.html">Contact Us</a>
+              </div>
+          
+              <div class="footer-group">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+              </div>
+          
+              <div class="footer-group">
+                <h4>Resources</h4>
+                <a href="https://www.w3schools.com/" target="_blank">Learn More</a>
+                <a href="sitemap.html">Site Map</a>
+              </div>
+          
+            </div>
+          </div>          
+          
+        <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
+        <script src="index.js"></script>
+    </body>
+</html>
