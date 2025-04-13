@@ -183,12 +183,18 @@
             <h2>RSVP</h2>
             <div class="rsvp-container">
                 <div class="rsvp-para">
-                    <p>Be a part of the innovation! Sign up now and secure your spot at CodeFusion 2025.</p>
+                    <p>
+                        Be a part of the innovation! Sign up now and secure your spot at CodeFusion 2025. 
+                        Whether you're a seasoned developer, a curious beginner, or a tech enthusiast, this is your chance 
+                        to collaborate, learn, and build groundbreaking projects. Limited spots available — don't miss out!
+                    </p>
+                      
                   </div>                  
                 <div class="rsvp-participants">
-                    <p>🎟️ DJ from Texas has RSVP'd.</p>
-                    <p>🎟️ Amy from New York has RSVP'd.</p>
-                    <p>🎟️ Teresa from Montana has RSVP'd.</p>
+                    <p>✅ DJ from Texas has RSVP'd.</p>
+                    <p>✅ Amy from New York has RSVP'd.</p>
+                    <p>✅ Teresa from Montana has RSVP'd.</p>
+                    <p id="rsvp-count"> ⭐ 3 people have RSVP'd to this event!</p>
                 </div>
             </div>
 
@@ -197,10 +203,10 @@
                 <form id="rsvp-form" title="rsvp-form">
                     <input type="text" id="name" placeholder="Your Name" required>
                     <input type="text" id="state" placeholder="Your State" required>
-                  </form>
-                  
-                <!-- Submit button -->
-                <button id="rsvp-button">Submit RSVP</button>
+                    <input type="text" id="email" placeholder="Your email" required>
+                    <!-- Submit button -->
+                    <button id="rsvp-button" type="submit">Submit RSVP</button>
+                </form>
             </div>      
         </div>
 

@@ -40,8 +40,9 @@ themeButton.addEventListener('click', toggleDarkMode);
 
 // Step 1: Add your query for the submit RSVP button here
 let rsvpButton = document.getElementById("rsvp-button")
+let count = 3;
+
 const addParticipant = (event) => {
-  // Step 2: Write your code to manipulate the DOM here
   event.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -49,10 +50,23 @@ const addParticipant = (event) => {
 
   if (name && state) {
     const para = document.createElement("p");
-    para.textContent = `🎟️ ${name} from ${state} has RSVP'd.`;
+    para.textContent = `✅ ${name} from ${state} has RSVP'd.`;
     document.querySelector(".rsvp-participants").appendChild(para);
+
+    const element = document.getElementById("rsvp-count");
+    if (element) {
+      element.remove();
+    }
+
+    count = count + 1;
+
+    const newPtag = document.createElement("p");
+    newPtag.id = "rsvp-count";
+    newPtag.textContent = "⭐ " + count + " people have RSVP'd to this event!";
+    document.querySelector(".rsvp-participants").appendChild(newPtag);
   }
-}
+};
+
 
 // Step 3: Add a click event listener to the submit RSVP button here
 rsvpButton.addEventListener('click', addParticipant)

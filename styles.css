@@ -427,10 +427,43 @@ When To Modify:
 }
 
 .form-container {
-  margin-top: 20px;
-  padding-left: 10px;
-  max-width: 500px;
+  width: 100%;
+  padding: 10px 0;
 }
+
+#rsvp-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#rsvp-form input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  flex: 1 1 200px; /* allows responsiveness */
+}
+
+#rsvp-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #0099CC;
+  color: white;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#rsvp-button:hover {
+  background-color: #0077aa;
+}
+
+
+
 
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
 /*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
