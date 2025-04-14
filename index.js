@@ -42,8 +42,7 @@ themeButton.addEventListener('click', toggleDarkMode);
 let rsvpButton = document.getElementById("rsvp-button")
 let count = 3;
 
-const addParticipant = (event) => {
-  event.preventDefault();
+const addParticipant = () => {
 
   const name = document.getElementById("name").value;
   const state = document.getElementById("state").value;
@@ -93,6 +92,7 @@ const validateForm = () => {
   var rsvpInputs = document.getElementById("rsvp-form").elements;
   // TODO: Loop through all inputs
   for (let i = 0; i < rsvpInputs.length; i++) {
+    // TODO: Inside loop, validate the value of each input
     let input = rsvpInputs[i];
 
     if (input.type !== "text") continue; // Skip non-text inputs (like the button)
@@ -104,9 +104,19 @@ const validateForm = () => {
       input.classList.remove("error");
     }
   }
+  
+  let email = document.getElementById('email');
+  if (!email.value.includes('@') || !email.value.includes('.com')) {
+    containsErrors = true;
+    email.classList.add('error');
+  } else {
+    email.classList.remove('error');
+  }
+  
 
   // Only call addParticipant() if all inputs are valid
   if (!containsErrors) {
+    // TODO: If no errors, call addParticipant() and clear fields
     addParticipant();
 
     // Clear inputs after successful submission
@@ -116,16 +126,6 @@ const validateForm = () => {
       }
     }
   }
-
-  // Replace old RSVP click listener with this
-
-
-  
-
-  // TODO: Inside loop, validate the value of each input
-
-  // TODO: If no errors, call addParticipant() and clear fields
-
 }
 
 // Step 3: Replace the form button's event listener with a new one that calls validateForm()
