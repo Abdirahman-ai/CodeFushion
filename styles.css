@@ -463,6 +463,19 @@ When To Modify:
 }
 
 
+.error {
+  border: 2px solid red;
+  background-color: #be4242;
+  border-radius: 4px;
+  outline: none;
+}
+ 
+.error::placeholder {
+  color: red;
+  font-style: italic;
+}
+
+
 
 
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
