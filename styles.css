@@ -9,9 +9,19 @@
   - If you change the background color of your webpage, you may need to update this rule too.
 ***/
 html {
-  /* background-color: var(--bg-color); */
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Adjust to match height of your navbar */
+  scroll-padding-top: 80px;
+  background-color: #F8F8FF; /* Default light background */
+  color: #231942; /* Default dark text */
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background-color: #0A1128;
+  color: #F8F8FF;
+  margin: 0;
+  padding: 0;
 }
 
 /*** body ***
@@ -26,21 +36,14 @@ When To Modify:
 - [x] Any time after
 ***/
 
-/* html, body {
-  height: 100%;
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background-color: inherit; /* Inherit from html */
+  color: inherit; /* Inherit from html */
   margin: 0;
   padding: 0;
-} */
-
-html, body {
-height: 100%;
-display: flex;
-flex-direction: column;
-font-family: 'Arial', sans-serif;
-background-color: #0A1128;
-color: #F8F8FF;
-margin: 0;
-padding: 0;
 }
 
 section {
@@ -711,3 +714,61 @@ margin: 20px auto;
   --error-color: #f8bbd0;
   --error-color-border: #e63946;
 }
+
+/* Extend dark mode to all sections consistently */
+.dark-mode section,
+.dark-mode .rsvp-container,
+.dark-mode .rsvp-para,
+.dark-mode .rsvp-participants,
+.dark-mode .form-container,
+.dark-mode .video-container,
+.dark-mode .image-container,
+.dark-mode .modal-container,
+.dark-mode .footer,
+.dark-mode #links {
+  background-color: #121212;
+  color: #F8F8FF;
+}
+
+.dark-mode #rsvp-form input {
+  background-color: #1e1e1e;
+  color: #F8F8FF;
+  border: 1px solid #555;
+}
+
+.dark-mode .button,
+.dark-mode #theme-button,
+.dark-mode #motion-button,
+.dark-mode #rsvp-button,
+.dark-mode .modal-close-button {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.dark-mode .button:hover,
+.dark-mode #theme-button:hover,
+.dark-mode #motion-button:hover,
+.dark-mode #rsvp-button:hover,
+.dark-mode .modal-close-button:hover {
+  background-color: #4682b4;
+}
+
+.dark-mode html,
+.dark-mode body {
+  background-color: #121212;
+  color: #F8F8FF;
+}
+
+/* Dark Mode Navbar Styles */
+.dark-mode .navbar {
+  background-color: #121212;
+}
+
+.dark-mode .navbar a {
+  color: #1AFFD5; /* Brighter cyan for dark mode */
+}
+
+.dark-mode .navbar a:hover {
+  color: #FFD700; /* Gold on hover */
+}
+
