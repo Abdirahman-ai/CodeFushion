@@ -13,113 +13,77 @@ let themeButton = document.getElementById("theme-button")
 
 // Step 2: Write the callback function
 const toggleDarkMode = () => {
-    // Write your code here
-    // This section will run whenever the button is clicked
     document.body.classList.toggle('dark-mode')
 }
 
 // Step 3: Register a 'click' event listener for the theme button,
-//             and tell it to use toggleDarkMode as its callback function
 themeButton.addEventListener('click', toggleDarkMode);
 
 
 /*** Form Handling [PLACEHOLDER] [ADDED IN UNIT 6] ***/
-/*** Form Handling ***
-  
-  Purpose:
-  - When the user submits the RSVP form, the name and state they 
-    entered should be added to the list of participants.
-
-  When To Modify:
-  - [ ] Project 6 (REQUIRED FEATURE)
-  - [ ] Project 6 (STRETCH FEATURE) 
-  - [ ] Project 7 (REQUIRED FEATURE)
-  - [ ] Project 9 (REQUIRED FEATURE)
-  - [ ] Any time between / after
-***/
-
-// Step 1: Add your query for the submit RSVP button here
 let rsvpButton = document.getElementById("rsvp-button")
 let count = 3;
 
-const addParticipant = () => {
+const addParticipant = (person) => {
+  const para = document.createElement("p");
+  para.textContent = `✅ ${person.name} from ${person.hometown} has RSVP'd.`;
+  document.querySelector(".rsvp-participants").appendChild(para);
 
-  const name = document.getElementById("name").value;
-  const state = document.getElementById("state").value;
-
-  if (name && state) {
-    const para = document.createElement("p");
-    para.textContent = `✅ ${name} from ${state} has RSVP'd.`;
-    document.querySelector(".rsvp-participants").appendChild(para);
-
-    const element = document.getElementById("rsvp-count");
-    if (element) {
-      element.remove();
-    }
-
-    count = count + 1;
-
-    const newPtag = document.createElement("p");
-    newPtag.id = "rsvp-count";
-    newPtag.textContent = "⭐ " + count + " people have RSVP'd to this event!";
-    document.querySelector(".rsvp-participants").appendChild(newPtag);
+  const element = document.getElementById("rsvp-count");
+  if (element) {
+    element.remove();
   }
+
+  count++;
+
+  const newPtag = document.createElement("p");
+  newPtag.id = "rsvp-count";
+  newPtag.textContent = "⭐ " + count + " people have RSVP'd to this event!";
+  document.querySelector(".rsvp-participants").appendChild(newPtag);
 };
 
 
-// Step 3: Add a click event listener to the submit RSVP button here
-
 /*** Form Validation [PLACEHOLDER] [ADDED IN UNIT 7] ***/
-/*** Form Validation ***
-  
-  Purpose:
-  - Prevents invalid form submissions from being added to the list of participants.
-
-  When To Modify:
-  - [x] Project 7 (REQUIRED FEATURE)
-  - [x] Project 7 (STRETCH FEATURE)
-  - [ ] Project 9 (REQUIRED FEATURE)
-  - [ ] Any time between / after
-***/
-
-// Step 1: We actually don't need to select the form button again -- we already did it in the RSVP code above.
-
-// Step 2: Write the callback function
-const validateForm = () => {
-
+const validateForm = (event) => {
+  event.preventDefault(); // Prevent form from reloading the page
   let containsErrors = false;
+  let rsvpInputs = document.getElementById("rsvp-form").elements;
 
-  var rsvpInputs = document.getElementById("rsvp-form").elements;
-  // TODO: Loop through all inputs
-  for (let i = 0; i < rsvpInputs.length; i++) {
-    // TODO: Inside loop, validate the value of each input
-    let input = rsvpInputs[i];
+  let person = {
+    name: rsvpInputs[0].value,
+    hometown: rsvpInputs[1].value,
+    email: rsvpInputs[2].value
+  };
 
-    if (input.type !== "text") continue; // Skip non-text inputs (like the button)
-
-    if (input.value.length < 2) {
-      containsErrors = true;
-      input.classList.add("error");
-    } else {
-      input.classList.remove("error");
-    }
-  }
-  
-  let email = document.getElementById('email');
-  if (!email.value.includes('@') || !email.value.includes('.com')) {
+  // Validate name and hometown
+  if (person.name.length < 2) {
     containsErrors = true;
-    email.classList.add('error');
+    rsvpInputs[0].classList.add("error");
   } else {
-    email.classList.remove('error');
+    rsvpInputs[0].classList.remove("error");
   }
-  
 
-  // Only call addParticipant() if all inputs are valid
+  if (person.hometown.length < 2) {
+    containsErrors = true;
+    rsvpInputs[1].classList.add("error");
+  } else {
+    rsvpInputs[1].classList.remove("error");
+  }
+
+  // Validate email
+  if (!person.email.includes("@") || !person.email.includes(".com")) {
+    containsErrors = true;
+    rsvpInputs[2].classList.add("error");
+  } else {
+    rsvpInputs[2].classList.remove("error");
+  }
+
+  // Only add participant if all inputs are valid
   if (!containsErrors) {
-    // TODO: If no errors, call addParticipant() and clear fields
-    addParticipant();
+    addParticipant(person);
+    toggleModal(person);
 
-    // Clear inputs after successful submission
+
     for (let i = 0; i < rsvpInputs.length; i++) {
       if (rsvpInputs[i].type === "text") {
         rsvpInputs[i].value = "";
@@ -128,9 +92,69 @@ const validateForm = () => {
   }
 }
 
-// Step 3: Replace the form button's event listener with a new one that calls validateForm()
-rsvpButton.removeEventListener('click', addParticipant); // Just to be safe
+rsvpButton.removeEventListener('click', addParticipant);
 rsvpButton.addEventListener('click', validateForm);
 
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
 /*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
+
+/*** Modal ***
+  
+  Purpose:
+  - Use this starter code to add a pop-up modal to your website.
+
+  When To Modify:
+  - [x] Project 9 (REQUIRED FEATURE)
+  - [x] Project 9 (STRETCH FEATURE)
+  - [x] Any time after
+***/
+
+const toggleModal = (person) => {
+  let modal = document.getElementById('success-modal');
+  let modalText = document.getElementById('modal-text');
+
+  modal.style.display = 'flex';
+  modalText.textContent = `Thanks for RSVPing, ${person.name}! We can't wait to see you at the event.`;
+
+  let intervalId = null;
+
+  if (!reduceMotion) {
+    intervalId = setInterval(animateImage, 500);
+  }
+
+  setTimeout(() => {
+    modal.style.display = 'none';
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+    }
+  }, 5000);
+};
+
+
+let closeModalBtn = document.getElementById("close-modal-button");
+
+const closeModal = () => {
+  document.getElementById("success-modal").style.display = "none";
+};
+
+closeModalBtn.addEventListener("click", closeModal);
+
+
+// TODO: animation variables and animateImage() function
+let rotateFactor = 0;
+let modalImage = document.querySelector("#success-modal img");
+
+const animateImage = () => {
+  rotateFactor = (rotateFactor === 0) ? -10 : 0;
+  modalImage.style.transform = `rotate(${rotateFactor}deg)`;
+};
+
+let reduceMotion = false;
+
+document.getElementById("motion-button").addEventListener("click", () => {
+  reduceMotion = !reduceMotion;
+});
+
+
+
+
